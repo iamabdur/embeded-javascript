@@ -4,29 +4,15 @@ const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
-  const today = new Date("June 24, 2023 11:13:00");
-  //Test code
-  // weekend:
-  // new Date("June 24, 2023 11:13:00");
-  // weekday:
-  // new Date("June 20, 2023 11:13:00");
-  const day = today.getDay();
-
-  // console.log(day);
-  let type = "a weekday";
-  let adv = "it's time to work hard";
-
-  if (day === 0 || day === 6) {
-    type = "the weekend";
-    adv = "it's time to have some fun";
-  }
-
-  res.render("index.ejs", {
-    dayType: type,
-    advice: adv,
-  });
+  
+const data={
+    title:"hello",
+    second:new Date().getSeconds(),
+    items:["apple","orange","banana"],
+    htmlContent:"<em>this is some text</em>",
+}
+  res.render("index.ejs", data);
 });
-
-app.listen(port, () => {
+app.listen(3000, () => {
   console.log(`Server running on port ${port}.`);
 });
